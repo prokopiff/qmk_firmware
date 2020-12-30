@@ -144,8 +144,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(\
            KC_GRAVE, KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS,      KC_EQL,  KC_HOME, KC_UP,     KC_PGUP, _______, KC_LGUI, \
-           _______,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS,      _______, KC_LEFT, KC_DOWN,   KC_RGHT, _______, KC_BSLS, \
-           _______,  KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PCMM,      _______, KC_END,  KC_PSCR,   KC_PGDN, _______, KC_RCTL,  \
+           _______,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS,      KC_VOLU, KC_LEFT, KC_DOWN,   KC_RGHT, _______, KC_BSLS, \
+           KC_NLCK,  KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PCMM,      KC_VOLD, KC_END,  KC_PSCR,   KC_PGDN, _______, KC_RCTL,  \
                                        _______, _______, _______,      _______, _______, _______\
 ),
 
@@ -213,8 +213,11 @@ void matrix_render_user(struct CharacterMatrix *matrix) {
   if (is_master) {
     // If you want to change the display of OLED, you need to change here
     matrix_write_ln(matrix, read_layer_state());
-    matrix_write_ln(matrix, read_keylog());
+//    matrix_write_ln(matrix, read_keylog());
     matrix_write_ln(matrix, read_keylogs());
+    char wpm_str[10];
+    sprintf(wpm_str, "WPM: %03d", get_current_wpm());
+    matrix_write_ln(matrix, wpm_str);
     //matrix_write_ln(matrix, read_mode_icon(keymap_config.swap_lalt_lgui));
     //matrix_write_ln(matrix, read_host_led_state());
     //matrix_write_ln(matrix, read_timelog());
