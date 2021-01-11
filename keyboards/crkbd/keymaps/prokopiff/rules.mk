@@ -1,6 +1,5 @@
 BOOTMAGIC_ENABLE 	= no       # Virtual DIP switch configuration(+1000)
 MOUSEKEY_ENABLE     = no     # Mouse keys
-RGBLIGHT_ENABLE     = yes    # Enable WS2812 RGB underlight.
 VIA_ENABLE          = no         # Enable VIA
 OLED_DRIVER_ENABLE  = no
 LTO_ENABLE          = yes
@@ -13,7 +12,8 @@ MIDI_ENABLE 		= no     # MIDI controls
 AUDIO_ENABLE 		= no     # Audio output on port C6
 UNICODE_ENABLE 		= no     # Unicode
 BLUETOOTH_ENABLE 	= no     # Enable Bluetooth with the Adafruit EZ-Key HID
-RGBLIGHT_ENABLE 	= yes    # Enable WS2812 RGB underlight.
+RGBLIGHT_ENABLE     = no
+RGB_MATRIX_ENABLE   = yes
 SWAP_HANDS_ENABLE 	= no	 # Enable one-hand typing
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE 	= no    # Breathing sleep LED during USB suspend
