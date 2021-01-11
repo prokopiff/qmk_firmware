@@ -150,10 +150,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_ADJUST] = LAYOUT(\
-           RGBRST,  KC_ASUP, KC_ASTG, KC_ASDN, _______, _______,      _______, _______,  KC_ASDN, KC_ASTG, KC_ASUP, RGBRST, \
-           RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, QWERTY,  PLOVER,       PLOVER,  QWERTY,   RGB_VAI, RGB_SAI, RGB_HUI, RGB_TOG, \
-           RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, _______,      _______, _______,  RGB_VAD, RGB_SAD, RGB_HUD, RGB_MOD, \
-                                      _______, SH_TG,   _______,      _______, SH_TG,   _______\
+           RGB_MODE_PLAIN,  KC_ASUP, KC_ASTG, KC_ASDN, _______, _______,      _______, _______,  KC_ASDN, KC_ASTG, KC_ASUP, RGB_MODE_PLAIN, \
+           RGB_TOG,         RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, _______,      _______, RGB_SPI,  RGB_VAI, RGB_SAI, RGB_HUI, RGB_TOG, \
+           RGB_MOD,         RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, _______,      _______, RGB_SPD,  RGB_VAD, RGB_SAD, RGB_HUD, RGB_MOD, \
+                                            _______, _______,   _______,      _______, _______,   _______\
 ),
 
 };
