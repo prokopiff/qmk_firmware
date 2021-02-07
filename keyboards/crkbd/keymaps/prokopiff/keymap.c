@@ -195,6 +195,7 @@ void matrix_init_user(void) {
 // When add source files to SRC in rules.mk, you can use functions.
 const char *read_layer_state(void);
 const char *read_logo(void);
+const char *read_logo2(void);
 void set_keylog(uint16_t keycode, keyrecord_t *record);
 const char *read_keylog(void);
 const char *read_keylogs(void);
@@ -207,6 +208,11 @@ const char *read_keylogs(void);
 void matrix_scan_user(void) {
    iota_gfx_task();
 }
+
+#define ANIM_FRAME_DURATION 1000
+uint32_t anim_timer = 0;
+uint32_t anim_sleep = 0;
+uint8_t current_frame = 0;
 
 
 void matrix_render_user(struct CharacterMatrix *matrix) {
@@ -222,7 +228,16 @@ void matrix_render_user(struct CharacterMatrix *matrix) {
     //matrix_write_ln(matrix, read_host_led_state());
     //matrix_write_ln(matrix, read_timelog());
   } else {
-    matrix_write(matrix, read_logo());
+    if(timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
+      current_frame = (current_frame + 1) % 2;
+      anim_timer = timer_read32();
+    }
+
+    if (current_frame == 0) {
+        matrix_write(matrix, read_logo());
+    } else {
+        matrix_write(matrix, read_logo2());
+    }
   }
 }
 
