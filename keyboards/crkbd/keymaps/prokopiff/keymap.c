@@ -210,8 +210,7 @@ void matrix_scan_user(void) {
 }
 
 #define ANIM_FRAME_DURATION 1000
-uint32_t anim_timer = 0;
-uint32_t anim_sleep = 0;
+uint16_t anim_timer = 0;
 uint8_t current_frame = 0;
 
 
@@ -228,10 +227,10 @@ void matrix_render_user(struct CharacterMatrix *matrix) {
     //matrix_write_ln(matrix, read_host_led_state());
     //matrix_write_ln(matrix, read_timelog());
   } else {
-    if(timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
-      current_frame = (current_frame + 1) % 2;
-      anim_timer = timer_read32();
-    }
+//    if(timer_elapsed(anim_timer) > ANIM_FRAME_DURATION) {
+//      current_frame = (current_frame + 1) % 2;
+//      anim_timer = timer_read();
+//    }
 
     if (current_frame == 0) {
         matrix_write(matrix, read_logo());
