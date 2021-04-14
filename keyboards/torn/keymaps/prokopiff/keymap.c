@@ -89,10 +89,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_RAISE] = LAYOUT_split_3x6_4(
-    KC_GRAVE, KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS,      KC_EQL,  KC_HOME, KC_UP,     KC_PGUP, _______,   KC_LGUI,
+    KC_GRAVE, KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS,      KC_EQL,  KC_HOME, KC_UP,     KC_PGUP, _______,   _______,
     _______,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS,      KC_VOLU, KC_LEFT, KC_DOWN,   KC_RGHT, C(KC_TAB), KC_BSLS,
     KC_NLCK,  KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PCMM,      KC_VOLD, KC_END,  KC_PSCR,   KC_PGDN, _______,   KC_RCTL,
-                       _______, _______, _______, _______,      _______, _______, _______, _______
+                       KC_CAPS, _______, _______, _______,      _______, _______, _______, _______
 ),
 
 [_ADJUST] = LAYOUT_split_3x6_4(
@@ -108,4 +108,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     torn_set_led(0, IS_LAYER_ON_STATE(state, _RAISE));
     torn_set_led(1, IS_LAYER_ON_STATE(state, _LOWER));
     return state;
+}
+
+bool led_update_user(led_t led_state) {
+    torn_set_led(2, led_state.caps_lock);
+    return true;
 }
