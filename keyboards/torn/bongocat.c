@@ -21,7 +21,7 @@
 #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
 
 #define IDLE_SPEED 20 // idle below this wpm
-#define TAP_SPEED 60 // tap above this wpm
+#define TAP_SPEED 50 // tap above this wpm
 
 #define FRAME_DURATION 200 // how long each frame lasts in ms
 #define SLEEP_DURATION 15000 // sleep timeout
