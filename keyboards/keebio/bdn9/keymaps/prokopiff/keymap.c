@@ -43,10 +43,10 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLD);
         }
     } else if (index == _RIGHT) {
-        if (!clockwise) {
-            tap_code(KC_BRIU);
+        if (clockwise) {
+            tap_code(KC_WH_U);
         } else {
-            tap_code(KC_BRID);
+            tap_code(KC_WH_D);
         }
     }
 }
