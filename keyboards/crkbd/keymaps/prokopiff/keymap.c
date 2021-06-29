@@ -44,8 +44,6 @@ KC_##L20, KC_##L21, KC_##L22, KC_##L23, KC_##L24, KC_##L25,                     
 
 extern keymap_config_t keymap_config;
 
-#define SH_TG KC_TRNS
-
 #ifdef RGBLIGHT_ENABLE
 //Following line allows macro to read current RGB settings
 extern rgblight_config_t rgblight_config;
